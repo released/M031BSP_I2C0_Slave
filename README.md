@@ -116,7 +116,7 @@ I2C master will write data , with 6 times
 
 ![image](https://github.com/released/M031BSP_I2C0_Slave/blob/main/LA_9.jpg)
 
-![image](https://github.com/released/M031BSP_I2C0_Slave/blob/main/log_9.jpg)
+![image](https://github.com/released/M031BSP_I2C0_Slave/blob/main/log_9_1.jpg)
 
 
 if enable printf in slave , below is LA capture
