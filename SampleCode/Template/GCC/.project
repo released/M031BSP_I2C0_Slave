@@ -130,6 +130,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/i2c_slave.c</locationURI>
 		</link>
 		<link>
+			<name>User/i2c_slave2.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/i2c_slave2.c</locationURI>
+		</link>
+		<link>
 			<name>User/main.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/main.c</locationURI>

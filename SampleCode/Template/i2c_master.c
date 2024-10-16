@@ -641,7 +641,7 @@ void I2Cx_Master_example (uint8_t res)
 			break;
 
 		case 8 : 
-			execute_time = 0;
+			execute_time = 2;
 			do
 			{			
 				//fill data
@@ -656,8 +656,8 @@ void I2Cx_Master_example (uint8_t res)
 				I2C_WriteMultiBytesOneReg(MASTER_I2C, addr, reg, u8TxData, len);		
 				#endif
 				
-				printf("I2Cx_Write finish\r\n");
-				printf("addr : 0x%2X, reg : 0x%2X , data (%2d) : \r\n",addr,reg,cnt);
+				// printf("I2Cx_Write finish\r\n");
+				// printf("addr : 0x%2X, reg : 0x%2X , data (%2d) : \r\n",addr,reg,cnt);
 				
 				DataCnt++;
 				
@@ -673,19 +673,19 @@ void I2Cx_Master_example (uint8_t res)
 				I2C_ReadMultiBytesOneReg(MASTER_I2C, addr, reg, u8RxData, 16);
 				#endif			
 				
-				printf("\r\nI2Cx_Read finish\r\n");
+				// printf("\r\nI2Cx_Read finish\r\n");
 				
-				for(i = 0; i < 4 ; i++)
-				{
-					printf("0x%2X ,", u8RxData[i]);
-					if ((i+1)%8 ==0)
-					{
-						printf("\r\n");
-					}		
-				}
+				// for(i = 0; i < 4 ; i++)
+				// {
+				// 	printf("0x%2X ,", u8RxData[i]);
+				// 	if ((i+1)%8 ==0)
+				// 	{
+				// 		printf("\r\n");
+				// 	}		
+				// }
 
-				printf("\r\n\r\n\r\n");	
-			} while (execute_time++ < 1);
+				// printf("\r\n\r\n\r\n");	
+			} while (execute_time-- > 1 );
 				
 			break;
 			

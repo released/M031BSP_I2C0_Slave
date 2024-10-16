@@ -11,7 +11,7 @@
 struct flag_32bit flag_PROJ_CTL;
 #define FLAG_PROJ_TIMER_PERIOD_1000MS                 	(flag_PROJ_CTL.bit0)
 #define FLAG_PROJ_UART_CMD                   			(flag_PROJ_CTL.bit1)
-#define FLAG_PROJ_REVERSE2                 				(flag_PROJ_CTL.bit2)
+#define FLAG_PROJ_TIMER_PERIOD_I2C        				(flag_PROJ_CTL.bit2)
 #define FLAG_PROJ_REVERSE3                              (flag_PROJ_CTL.bit3)
 #define FLAG_PROJ_REVERSE4                              (flag_PROJ_CTL.bit4)
 #define FLAG_PROJ_REVERSE5                              (flag_PROJ_CTL.bit5)
@@ -288,6 +288,12 @@ void TMR1_IRQHandler(void)
 		{
 
 		}	
+
+		if ((get_tick() % 20) == 0)
+		{
+            FLAG_PROJ_TIMER_PERIOD_I2C = 1;
+		}	
+
     }
 }
 
@@ -316,6 +322,17 @@ void loop(void)
         // printf("%s(timer) : %4d\r\n",__FUNCTION__,LOG1++);
         PB14 ^= 1;        
     }
+
+    // under project:Template2 , use define : ENABLE_AUTO_I2C_MASTER_SEND
+    #if 0
+    #if defined (ENABLE_AUTO_I2C_MASTER_SEND)
+    if (FLAG_PROJ_TIMER_PERIOD_I2C) 
+    {
+        FLAG_PROJ_TIMER_PERIOD_I2C = 0;        
+		I2Cx_Master_example(8);
+    }
+    #endif
+    #endif
     
 	I2Cx_Slave_printf();
 

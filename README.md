@@ -1,6 +1,12 @@
 # M031BSP_I2C0_Slave
  M031BSP_I2C0_Slave
 
+update @ 2024/10/16
+
+1. under project:Template2 , will use i2c_slave2.c and use define : ENABLE_AUTO_I2C_MASTER_SEND 
+
+master will write/read command per 20 ms
+
 update @ 2024/10/07
 
 1. init I2C 0 : PB5 : SCL , PB4 : SDA as I2C slave
