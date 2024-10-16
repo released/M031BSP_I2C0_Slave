@@ -93,7 +93,7 @@ void I2Cx_Slave_ReturnTx(void)
 
 void I2Cx_Slave_StateMachine(uint32_t res , uint8_t* InData, uint8_t* OutData)
 {
-//	uint8_t i = 0;	
+	uint8_t i = 0;	
 //	static uint8_t u8Temp = 0;
 	static uint8_t cnt = _state_DEFAULT_;	
 
@@ -179,6 +179,15 @@ void I2Cx_Slave_StateMachine(uint32_t res , uint8_t* InData, uint8_t* OutData)
 				}
 
 				g_u8temporary = g_u8FromMasterLen;
+
+				#if 0	// check data from master
+				printf("[S]from master:");
+				for (i = 0; i < g_u8temporary; i++)
+				{
+					printf("0x%2X," , g_u8FromMasterData[i]);
+				}
+				printf("\r\n");
+				#endif
 
 				// if use I2C_ReadMultiBytes , 
 				// ack will act as below , 0xA8 > 0xB8 > 0xB8 > ... > 0xC0

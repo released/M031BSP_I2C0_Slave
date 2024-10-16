@@ -437,9 +437,10 @@ void I2Cx_Master_example (uint8_t res)
 	
 	static uint16_t DataCnt = 10;	
 
-	uint8_t addr,reg;
-	uint32_t i;	
-	uint16_t len;
+	uint8_t addr = 0;
+	uint8_t reg = 0;
+	uint32_t i = 0;	
+	uint16_t len = 0;
 	uint8_t crc = 0;
 	uint8_t execute_time = 0;
 	
